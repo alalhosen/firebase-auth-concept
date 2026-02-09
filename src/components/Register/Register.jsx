@@ -1,45 +1,56 @@
 const Register = () => {
+  const handleRegister = (e) => {
+    e.preventDefault()
+    const name=e.target.name.value;
+    const photo=e.target.photo.value;
+    const email=e.target.email.value;
+    const password=e.target.password.value;
+    const confirmPassword=e.target.confirmPassword;
+
+    console.log(name,photo,email,password,confirmPassword)
+  };
+
   return (
-    <div className="w-[40%] mx-auto min-w[500px]">
-      <form>
+    <div className="w-[40%] mx-auto min-w[500px] border-red-500 p-2 rounded-xl">
+      <form className="space-y-2" onSubmit={handleRegister}>
         <div>
           <p>Name</p>
-          <input
+          <input name="name" 
             type="text"
-            placeholder="Type here"
-            className="input input-bordered"
+            placeholder="Your Name"
+            className="input input-bordered w-full"
           />
         </div>
         <div>
           <p>Photo</p>
-          <input
+          <input name="photo" 
             type="text"
-            placeholder="Type here"
-            className="input input-bordered"
+            placeholder="Photo"
+            className="input input-bordered w-full"
           />
         </div>
         <div>
           <p>Email</p>
-          <input
-            type="text"
-            placeholder="Type here"
-            className="input input-bordered"
+          <input name="email" 
+            type="email"
+            placeholder="Email"
+            className="input input-bordered w-full"
           />
         </div>
         <div>
           <p>Password</p>
-          <input
-            type="text"
-            placeholder="Type here"
-            className="input input-bordered"
+          <input name="password" 
+            type="password"
+            placeholder="Password"
+            className="input input-bordered w-full"
           />
         </div>
         <div>
           <p>Confirm Password</p>
-          <input
-            type="text"
-            placeholder="Type here"
-            className="input input-bordered"
+          <input name="confirm password" 
+            type="password"
+            placeholder="Confirm Password"
+            className="input input-bordered w-full"
           />
         </div>
         <button className="btn btn-primary w-full">Register</button>
