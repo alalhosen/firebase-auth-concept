@@ -47,7 +47,7 @@ const Register = () => {
         </div>
         <div>
           <p>Confirm Password</p>
-          <input name="confirm password" 
+          <input name="confirmPassword" 
             type="password"
             placeholder="Confirm Password"
             className="input input-bordered w-full"
