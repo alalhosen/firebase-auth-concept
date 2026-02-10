@@ -1,7 +1,14 @@
 const Login = () => {
+   const handleLogin = (e) => {
+    e.preventDefault()
+    const email=e.target.email.value;
+    const password=e.target.password.value;
+
+    console.log(email,password)
+  };
   return (
       <div className="w-[40%] mx-auto min-w[500px] border-red-500 p-2 rounded-xl">
-      <form className="space-y-2" onSubmit={handleRegister}>
+      <form className="space-y-2" onSubmit={handleLogin}>
     
         
         <div>
@@ -20,7 +27,7 @@ const Login = () => {
             className="input input-bordered w-full"
           />
         </div>
-        <button className="btn btn-primary w-full">Register</button>
+        <button className="btn btn-primary w-full">Login</button>
       </form>
     </div>
   );
