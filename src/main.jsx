@@ -15,7 +15,7 @@ const router=createBrowserRouter([
       {
         path:'/',
         element:<Home>
-          <div>jakar</div>
+          <div>jakaria</div>
         </Home>
       },
       {
