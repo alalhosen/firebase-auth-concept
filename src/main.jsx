@@ -14,7 +14,9 @@ const router=createBrowserRouter([
     children:[
       {
         path:'/',
-        element:<Home></Home>
+        element:<Home>
+          <div>jakar</div>
+        </Home>
       },
       {
         path:'/login',

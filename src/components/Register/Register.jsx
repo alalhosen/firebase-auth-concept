@@ -5,7 +5,7 @@ const Register = () => {
     const photo=e.target.photo.value;
     const email=e.target.email.value;
     const password=e.target.password.value;
-    const confirmPassword=e.target.confirmPassword;
+    const confirmPassword=e.target.confirmPassword.value;
 
     console.log(name,photo,email,password,confirmPassword)
   };

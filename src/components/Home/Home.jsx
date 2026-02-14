@@ -1,6 +1,11 @@
-const Home = () => {
+const Home = (data) => {
+    console.log(data)
   return 
-  <div className="text-3xl">This is home.</div>;
+  <div className="flex justify-center items-center h-screen">
+    {
+data.children
+    }
+  </div>;
 };
 
 export default Home;
