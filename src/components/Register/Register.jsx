@@ -1,4 +1,10 @@
+import { useContext } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+
 const Register = () => {
+
+const {registerUser}=useContext(AuthContext)
+
   const handleRegister = (e) => {
     e.preventDefault()
     const name=e.target.name.value;
