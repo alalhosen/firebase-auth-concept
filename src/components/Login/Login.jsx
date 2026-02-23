@@ -2,8 +2,8 @@ import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Login = () => {
-const user=useContext(AuthContext)
-console.log(user)
+  const user = useContext(AuthContext);
+  console.log(user);
 
   const handleLogin = (e) => {
     e.preventDefault();
