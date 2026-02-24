@@ -7,6 +7,7 @@ import Home from "./components/Home/Home.jsx";
 import Login from "./components/Login/Login.jsx";
 import Register from "./components/Register/Register.jsx";
 import AuthProvider from "./components/AuthProvider/AuthProvider.jsx";
+import Hodai from "./components/Hadai/Hodai.jsx";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register></Register>,
       },
+      {
+        path:"/hodai",
+        element:<Hodai></Hodai>
+      }
     ],
   },
 ]);
