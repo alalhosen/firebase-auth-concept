@@ -2,7 +2,8 @@ import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Register = () => {
-
+const authInfo=useContext(AuthContext)
+console.log(authInfo)
 const {registerUser}=useContext(AuthContext)
 
   const handleRegister = (e) => {
