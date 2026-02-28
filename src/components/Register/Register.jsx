@@ -2,19 +2,19 @@ import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Register = () => {
-const authInfo=useContext(AuthContext)
-console.log(authInfo)
-const {registerUser}=useContext(AuthContext)
+  const { registerUser } = useContext(AuthContext);
+  // const {registerUser}=useContext(AuthContext)
 
   const handleRegister = (e) => {
-    e.preventDefault()
-    const name=e.target.name.value;
-    const photo=e.target.photo.value;
-    const email=e.target.email.value;
-    const password=e.target.password.value;
-    const confirmPassword=e.target.confirmPassword.value;
+    e.preventDefault();
+    const name = e.target.name.value;
+    const photo = e.target.photo.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const confirmPassword = e.target.confirmPassword.value;
 
-    console.log(name,photo,email,password,confirmPassword)
+    console.log(name, photo, email, password, confirmPassword)
+    registerUser(email, password)
   };
 
   return (
@@ -22,7 +22,8 @@ const {registerUser}=useContext(AuthContext)
       <form className="space-y-2" onSubmit={handleRegister}>
         <div>
           <p>Name</p>
-          <input name="name" 
+          <input
+            name="name"
             type="text"
             placeholder="Your Name"
             className="input input-bordered w-full"
@@ -30,7 +31,8 @@ const {registerUser}=useContext(AuthContext)
         </div>
         <div>
           <p>Photo</p>
-          <input name="photo" 
+          <input
+            name="photo"
             type="text"
             placeholder="Photo"
             className="input input-bordered w-full"
@@ -38,7 +40,8 @@ const {registerUser}=useContext(AuthContext)
         </div>
         <div>
           <p>Email</p>
-          <input name="email" 
+          <input
+            name="email"
             type="email"
             placeholder="Email"
             className="input input-bordered w-full"
@@ -46,7 +49,8 @@ const {registerUser}=useContext(AuthContext)
         </div>
         <div>
           <p>Password</p>
-          <input name="password" 
+          <input
+            name="password"
             type="password"
             placeholder="Password"
             className="input input-bordered w-full"
@@ -54,7 +58,8 @@ const {registerUser}=useContext(AuthContext)
         </div>
         <div>
           <p>Confirm Password</p>
-          <input name="confirmPassword" 
+          <input
+            name="confirmPassword"
             type="password"
             placeholder="Confirm Password"
             className="input input-bordered w-full"
