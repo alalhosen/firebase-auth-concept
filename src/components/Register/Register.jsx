@@ -3,7 +3,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Register = () => {
   const { registerUser } = useContext(AuthContext);
-const [error,setError]=useState("")
+  const [error, setError] = useState("");
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -13,18 +13,22 @@ const [error,setError]=useState("")
     const password = e.target.password.value;
     const confirmPassword = e.target.confirmPassword.value;
 
-    if(password.length<6){
-      setError("password must be 6 characters")
+    if (password.length < 6) {
+      setError("password must be 6 characters");
+      return;
+    }
+     else if (password !== confirmPassword) {
+      setError("password did't match");
+      return;
+    }
+    if(!/\d{2,}$/.test(password)){
+      setError("password must be end with at least 2 numbers")
       return
     }
+    setError("")
 
-    else if(password !== confirmPassword){
-      setError("password did't match")
-      return
-    }
-
-    console.log(name, photo, email, password, confirmPassword)
-    registerUser(email, password)
+    console.log(name, photo, email, password, confirmPassword);
+    registerUser(email, password);
   };
 
   return (
@@ -75,6 +79,7 @@ const [error,setError]=useState("")
             className="input input-bordered w-full"
           />
         </div>
+        {error && <small className="text-red-600">{error}</small>}
         <button className="btn btn-primary w-full">Register</button>
       </form>
     </div>
