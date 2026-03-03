@@ -25,6 +25,10 @@ const Register = () => {
       setError("password must be end with at least 2 numbers")
       return
     }
+    if(/!@#$%^&/.test(password)){
+      setError("Please add a special characters")
+      return
+    }
     setError("")
 
     console.log(name, photo, email, password, confirmPassword);
