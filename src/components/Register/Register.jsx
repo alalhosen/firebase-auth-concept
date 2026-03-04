@@ -4,6 +4,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 const Register = () => {
   const { registerUser } = useContext(AuthContext);
   const [error, setError] = useState("");
+  const [emailError, setEmailError] = useState("");
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -13,26 +14,33 @@ const Register = () => {
     const password = e.target.password.value;
     const confirmPassword = e.target.confirmPassword.value;
 
+    if (!/@gmail\.com$/.test(email)) {
+      setEmailError("Email must end with @gmail.com");
+      return;
+    }
+
     if (password.length < 6) {
-      setError("password must be 6 characters");
+      setError("Password must be 6 characters");
+      return;
+    } else if (password !== confirmPassword) {
+      setError("Password did't match");
       return;
     }
-     else if (password !== confirmPassword) {
-      setError("password did't match");
+    if (!/\d{2,}$/.test(password)) {
+      setError("Password must be end with at least 2 numbers");
       return;
     }
-    if(!/\d{2,}$/.test(password)){
-      setError("password must be end with at least 2 numbers")
-      return
+    if (!/[@#$%^&]/.test(password)) {
+      setError("Please add a special character like @,#,$,%,^,&");
+      return;
     }
-    if(/!@#$%^&/.test(password)){
-      setError("Please add a special characters")
-      return
-    }
-    setError("")
+    setError("");
+    setEmailError("");
 
     console.log(name, photo, email, password, confirmPassword);
-    registerUser(email, password);
+    registerUser(email, password)
+      .then((result) => console.log(result.user))
+      .catch((error) => setError(error.message));
   };
 
   return (
@@ -65,11 +73,12 @@ const Register = () => {
             className="input input-bordered w-full"
           />
         </div>
+        {emailError && <small className="text-red-500">{emailError}</small>}
         <div>
           <p>Password</p>
           <input
             name="password"
-            type="password"
+            type="text"
             placeholder="Password"
             className="input input-bordered w-full"
           />
@@ -78,7 +87,7 @@ const Register = () => {
           <p>Confirm Password</p>
           <input
             name="confirmPassword"
-            type="password"
+            type="text"
             placeholder="Confirm Password"
             className="input input-bordered w-full"
           />
