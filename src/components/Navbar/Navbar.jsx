@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Navbar = () => {
-  const {user}=useContext(AuthContext)
-  console.log(user)
+  const { user } = useContext(AuthContext);
+  console.log(user);
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -55,7 +55,8 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          {user && user.email}
+
         </div>
       </div>
     </div>
