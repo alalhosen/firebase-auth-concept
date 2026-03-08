@@ -55,7 +55,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          {user && user.email}
+          {user && user?.email}
 
         </div>
       </div>

@@ -7,8 +7,8 @@ import { auth } from "../../Firebase/Firebase.init";
 export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
-  const[user,setUser]=useState(null)
-  
+  const [user, setUser] = useState(null);
+
   const registerUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
@@ -20,7 +20,7 @@ const AuthProvider = ({ children }) => {
     registerUser,
     loginUser,
     user,
-    setUser
+    setUser,
   };
 
   return (
