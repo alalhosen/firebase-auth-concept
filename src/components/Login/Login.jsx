@@ -13,6 +13,10 @@ const Login = () => {
     console.log(email, password);
     loginUser(email, password);
   };
+  const handleGoogleLogin = () => {
+    googleLogin()
+    .then((result) => console.log(result.user));
+  };
   return (
     <div className="w-[40%] mx-auto min-w[500px] border-red-500 p-2 rounded-xl">
       <form className="space-y-2" onSubmit={handleLogin}>
@@ -36,6 +40,7 @@ const Login = () => {
         </div>
         <button className="btn btn-primary w-full">Login</button>
       </form>
+      <button className="btn btn-secondary">Google login</button>
     </div>
   );
 };

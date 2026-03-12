@@ -20,14 +20,15 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  const googleLogin=()=>{
-    return signInWithPopup(auth,googleProvider)
-  }
+  const googleLogin = () => {
+    return signInWithPopup(auth, googleProvider);
+  };
   const authInfo = {
     registerUser,
     loginUser,
     user,
     setUser,
+    googleLogin,
   };
 
   return (
