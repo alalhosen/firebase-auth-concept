@@ -57,6 +57,16 @@ const Register = () => {
             className="input input-bordered w-full"
           />
         </div>
+        {/* ............ */}
+        <div>
+          <p>Last Name</p>
+          <input
+            name="name"
+            type="text"
+            placeholder="Your Name"
+            className="input input-bordered w-full"
+          />
+        </div>
         <div>
           <p>Photo</p>
           <input
