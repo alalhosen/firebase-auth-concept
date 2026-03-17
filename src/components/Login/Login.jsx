@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Login = () => {
-  const { loginUser, googleLogin,setUser } = useContext(AuthContext);
+  const { loginUser, googleLogin,setUser, facebookLogin } = useContext(AuthContext);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -14,6 +14,10 @@ const Login = () => {
     loginUser(email, password);
   };
   const handleGoogleLogin = () => {
+    googleLogin()
+    .then((result) => setUser(result.user));
+  };
+  const handleFacebookLogin = () => {
     googleLogin()
     .then((result) => setUser(result.user));
   };
@@ -41,6 +45,7 @@ const Login = () => {
         <button className="btn btn-primary w-full">Login</button>
       </form>
       <button onClick={handleGoogleLogin} className="btn btn-secondary">Google login</button>
+      <button onClick={handleFacebookLogin} className="btn btn-secondary">Facebook login</button>
     </div>
   );
 };
