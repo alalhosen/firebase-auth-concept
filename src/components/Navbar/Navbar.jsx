@@ -55,7 +55,10 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          {user && user?.email}
+          {user?<div>
+            {user.email}
+            <button>Logout</button>
+          </div>:""}
 
         </div>
       </div>

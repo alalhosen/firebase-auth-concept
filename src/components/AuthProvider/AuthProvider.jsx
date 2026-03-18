@@ -1,9 +1,10 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithEmailAndPassword,
-  signInWithPopup,FacebookAuthProvider
+  signInWithPopup,
+  FacebookAuthProvider,onAuthStateChanged
 } from "firebase/auth";
 import { auth } from "../../Firebase/Firebase.init";
 export const AuthContext = createContext(null);
@@ -25,17 +26,31 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
-const facebookLogin=()=>{
-return signInWithPopup(auth,facebookProvider)
-}
+  const facebookLogin = () => {
+    return signInWithPopup(auth, facebookProvider);
+  };
+  const logOut=()={
+    return signOut(auth)
+  }
 
   const authInfo = {
     registerUser,
     loginUser,
     user,
+    logOut,
     setUser,
     googleLogin,
   };
+
+  useEffect(() => {
+    const unsubcribe = onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        console.log(currentUser);
+      } else {
+
+      }
+    });
+  }, []);
 
   return (
     <div>
