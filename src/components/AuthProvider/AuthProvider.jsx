@@ -4,7 +4,8 @@ import {
   GoogleAuthProvider,
   signInWithEmailAndPassword,
   signInWithPopup,
-  FacebookAuthProvider,onAuthStateChanged
+  FacebookAuthProvider,
+  onAuthStateChanged,
 } from "firebase/auth";
 import { auth } from "../../Firebase/Firebase.init";
 export const AuthContext = createContext(null);
@@ -29,9 +30,9 @@ const AuthProvider = ({ children }) => {
   const facebookLogin = () => {
     return signInWithPopup(auth, facebookProvider);
   };
-  const logOut=()={
-    return signOut(auth)
-  }
+  const logOut = () => {
+    return signOut(auth);
+  };
 
   const authInfo = {
     registerUser,
@@ -47,7 +48,7 @@ const AuthProvider = ({ children }) => {
       if (currentUser) {
         console.log(currentUser);
       } else {
-
+        console.log("logged out");
       }
     });
   }, []);

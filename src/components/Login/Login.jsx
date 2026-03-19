@@ -44,7 +44,7 @@ const Login = () => {
         </div>
         <button className="btn btn-primary w-full">Login</button>
       </form>
-      <button onClick={handleGoogleLogin} className="btn btn-secondary">Google login</button>
+      <button onClick={handleGoogleLogin} className="btn mr-3 btn-secondary">Google login</button>
       <button onClick={handleFacebookLogin} className="btn btn-secondary">Facebook login</button>
     </div>
   );

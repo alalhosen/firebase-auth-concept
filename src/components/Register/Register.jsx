@@ -1,8 +1,14 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Register = () => {
-  const { registerUser,setUser } = useContext(AuthContext);
+  useEffect(() => {
+    const clear = setInterval(() => {
+      console.log("i am called");
+    }, 1000);
+  }, []);
+
+  const { registerUser, setUser } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [emailError, setEmailError] = useState("");
 
@@ -39,8 +45,8 @@ const Register = () => {
 
     console.log(name, photo, email, password, confirmPassword);
     registerUser(email, password)
-      .then(result => {
-        setUser(result.user)
+      .then((result) => {
+        setUser(result.user);
       })
       .catch((error) => setError(error.message));
   };
