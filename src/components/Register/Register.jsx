@@ -5,7 +5,11 @@ const Register = () => {
   useEffect(() => {
     const clear = setInterval(() => {
       console.log("i am called");
-    }, 1000);
+    }, 1000)
+
+    return()=>{
+      clearInterval(clear)
+    }
   }, []);
 
   const { registerUser, setUser } = useContext(AuthContext);
