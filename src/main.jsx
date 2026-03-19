@@ -7,6 +7,7 @@ import Home from "./components/Home/Home.jsx";
 import Login from "./components/Login/Login.jsx";
 import Register from "./components/Register/Register.jsx";
 import AuthProvider from "./components/AuthProvider/AuthProvider.jsx";
+import About from "./components/About/About.jsx";
 
 const router = createBrowserRouter([
   {
@@ -26,10 +27,9 @@ const router = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-        path:"/about",
-        element:<div>I am about.</div>
-      }
- 
+        path: "/about",
+        element: <About></About>,
+      },
     ],
   },
 ]);
@@ -39,5 +39,5 @@ createRoot(document.getElementById("root")).render(
     <AuthProvider>
       <RouterProvider router={router}></RouterProvider>
     </AuthProvider>
-   </StrictMode>, 
+  </StrictMode>,
 );
