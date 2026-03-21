@@ -12,6 +12,8 @@ import Login from "./components/Login/Login.jsx";
 import Register from "./components/Register/Register.jsx";
 import AuthProvider from "./components/AuthProvider/AuthProvider.jsx";
 import About from "./components/About/About.jsx";
+import PersonalData from "./components/PersonalData/PersonalData.jsx";
+import ProtecterRoute from "./components/ProtectedRoute/ProtecterRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -32,10 +34,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/about",
-        element:
-          <Navigate>
+        element: (
+          <ProtecterRoute>
             <About></About>
-          </Navigate>
+          </ProtecterRoute>
+        ),
+      },
+      {
+        path: "/pdata",
+        element: (
+          <ProtecterRoute>
+            <PersonalData></PersonalData>
+          </ProtecterRoute>
+        ),
       },
     ],
   },

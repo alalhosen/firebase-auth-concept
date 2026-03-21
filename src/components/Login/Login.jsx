@@ -1,8 +1,12 @@
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { useLocation } from "react-router-dom";
 
 const Login = () => {
-  const { loginUser, googleLogin,setUser, facebookLogin } = useContext(AuthContext);
+  const { loginUser, googleLogin, setUser, facebookLogin } =
+    useContext(AuthContext);
+  const location = useLocation();
+  console.log(location);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -14,12 +18,10 @@ const Login = () => {
     loginUser(email, password);
   };
   const handleGoogleLogin = () => {
-    googleLogin()
-    .then((result) => setUser(result.user));
+    googleLogin().then((result) => setUser(result.user));
   };
   const handleFacebookLogin = () => {
-    googleLogin()
-    .then((result) => setUser(result.user));
+    googleLogin().then((result) => setUser(result.user));
   };
   return (
     <div className="w-[40%] mx-auto min-w[500px] border-red-500 p-2 rounded-xl">
@@ -44,8 +46,12 @@ const Login = () => {
         </div>
         <button className="btn btn-primary w-full">Login</button>
       </form>
-      <button onClick={handleGoogleLogin} className="btn mr-3 btn-secondary">Google login</button>
-      <button onClick={handleFacebookLogin} className="btn btn-secondary">Facebook login</button>
+      <button onClick={handleGoogleLogin} className="btn mr-3 btn-secondary">
+        Google login
+      </button>
+      <button onClick={handleFacebookLogin} className="btn btn-secondary">
+        Facebook login
+      </button>
     </div>
   );
 };
