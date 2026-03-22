@@ -1,11 +1,13 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const { loginUser, googleLogin, setUser, facebookLogin } =
+  const { loginUser, googleLogin, setUser, facebookLogin, user } =
     useContext(AuthContext);
+
   const location = useLocation();
+  const navigate = useNavigate();
   console.log(location);
 
   const handleLogin = (e) => {
@@ -18,11 +20,20 @@ const Login = () => {
     loginUser(email, password);
   };
   const handleGoogleLogin = () => {
-    googleLogin().then((result) => setUser(result.user));
+    googleLogin().then((result) => {
+      setUser(result.user);
+      navigate(location.state);
+    });
   };
   const handleFacebookLogin = () => {
-    googleLogin().then((result) => setUser(result.user));
+    facebookLogin().then((result) => setUser(result.user));
   };
+
+    useEffect(()=>{
+  if(user){
+    navigate(location.state)
+  }
+    },[user])
   return (
     <div className="w-[40%] mx-auto min-w[500px] border-red-500 p-2 rounded-xl">
       <form className="space-y-2" onSubmit={handleLogin}>
