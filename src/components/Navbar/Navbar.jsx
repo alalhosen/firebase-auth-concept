@@ -37,6 +37,9 @@ const Navbar = () => {
               <li>
                 <a>Item 3</a>
               </li>
+              <li>
+                <a>Item 4</a>
+              </li>
             </ul>
           </div>
           <a className="btn btn-ghost text-xl">daisyUI</a>
